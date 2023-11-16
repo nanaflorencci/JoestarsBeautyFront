@@ -81,7 +81,7 @@ const ListagemProfissional = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -90,7 +90,7 @@ const ListagemProfissional = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'> Listagem de Profissional</h5>
+                            <h5 className='card-title'>✩Listagem de Profissional✩</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
@@ -99,13 +99,9 @@ const ListagemProfissional = () => {
                                         <th>CPF</th>
                                         <th>E-mail</th>
                                         <th>Data de Nascimento</th>
-                                    
-                                        <th>cep</th>
-                                        <th>complemento</th>
-                                        <th>salario</th>
-                                        
-                                        
-                                        
+                                        <th>CEP</th>
+                                        <th>Complemento</th>
+                                        <th>Salário</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>

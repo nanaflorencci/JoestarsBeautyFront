@@ -22,18 +22,14 @@ const Header = () => {
                                     <a href="#" className="nav-link active">Início</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeClientes" className="nav-link active">Cadastrar Clientes✩</a>
+                                    <a href="/CadastroDeClientes" className="nav-link active">Cadastrar Clientes</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeProfissionais" className="nav-link active">Cadastrar profissionais✩</a>
+                                    <a href="/CadastroDeProfissionais" className="nav-link active">Cadastrar profissionais</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeServico" className="nav-link active">Cadastrar Serviços✩</a>
+                                    <a href="/CadastroDeServico" className="nav-link active">Cadastrar Serviços</a>
                                 </li>
-
-
-
-
                             </ul>
                         </div>
                     </div>

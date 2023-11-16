@@ -82,7 +82,7 @@ const ListagemDeClientes = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -91,7 +91,7 @@ const ListagemDeClientes = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'> Listagem de Clientes</h5>
+                            <h5 className='card-title'>✩Listagem de Clientes✩</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
@@ -101,7 +101,7 @@ const ListagemDeClientes = () => {
                                         <th>CPF</th>
                                         <th>Data de Nascimento</th>
         
-                                        <th>cep</th>
+                                        <th>CEP</th>
                                         <th>Complemento</th>
                                         
                                         
@@ -123,8 +123,8 @@ const ListagemDeClientes = () => {
                                             
                                             
                                             <td>
-                                                <a href="#" className='btn btn-primary btn-sm'>Editar</a>
-                                                <a href="#" className='btn btn-danger btn-sm'>Excluir</a>
+                                                <a href="#" className='btn btn-dark btn-sm'>Editar</a>
+                                                <a href="#" className='btn btn-dark btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}

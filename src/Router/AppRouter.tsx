@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CadastroDeClientes from "../Components/CadastroCliente";
 import CadastroDeProfissionais from "../Components/CadastroProfissional";
 import CadastroServico from "../Components/CadastroServico";
-import ListagemDeClientes from "../Components/Listagem";
+import ListagemDeClientes from "../Components/ListagemCliente";
 import ListagemProfissional from "../Components/ListagemProfissional";
 import ListagemDeServico from "../Components/ListagemServico";
 

@@ -3,7 +3,7 @@ import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'r
 
 import styles from '../template.module.css'
 
-import { CadastroInterface } from '../Interfaces/CadastroServico';
+import { CadastroInterface } from '../Interfaces/CadastroServicoInterface';
 
 
 const ListagemDeServico = () => {
@@ -81,7 +81,7 @@ const ListagemDeServico = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -90,19 +90,15 @@ const ListagemDeServico = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'> Listagem de Serviços</h5>
+                            <h5 className='card-title'>✩Listagem de Serviços✩</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nome</th>
-                                        <th>Preco</th>
-                                        <th>Duracao</th>
-                                        <th>descricao</th>
-                               
-                                        
-                                        
-                                        
+                                        <th>Preço</th>
+                                        <th>Duração</th>
+                                        <th>Descrição</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>

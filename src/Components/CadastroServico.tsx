@@ -58,7 +58,7 @@ const CadastroServico = () => {
                 <div className='container'>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>Cadastrar Serviços✩</h5>
+                            <h5 className='card-title'>✩Cadastrar Serviços✩</h5>
                             <form onSubmit={cadastrarServico} className='row g-3'>
                                 <div className='col-6'>
                                     <label htmlFor="nome" className="form-label">
@@ -110,7 +110,7 @@ const CadastroServico = () => {
                                 </div>
 
                                 <div className="col-12">
-                                    <button type="submit" className="btn btn-success btn-sm">
+                                    <button type="submit" className="btn btn-dark btn-sm">
                                         Cadastrar
                                     </button>
                                 </div>
