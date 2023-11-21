@@ -22,7 +22,7 @@ const CadastroServico = () => {
 
         console.log(dados);
         axios
-            .post("http://127.0.0.1:8000/api/servico", dados, {
+            .post("http://127.0.0.1:8000/api/cadastrarServico", dados, {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",

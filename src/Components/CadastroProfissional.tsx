@@ -75,7 +75,7 @@ const CadastroDeProfissionais = () => {
         }
 
         console.log(dados)
-        axios.post('http://127.0.0.1:8000/api/Profissional', dados, {
+        axios.post('http://127.0.0.1:8000/api/cadastroProfissional', dados, {
             headers:
                 { "Accept": "application/json", "Content-Type": "application/json" }
         }).then(function (response) {
