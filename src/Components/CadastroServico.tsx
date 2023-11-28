@@ -6,9 +6,9 @@ import Footer from './Footer'
 
 const CadastroServico = () => {
     const [nome, setNome] = useState<string>("");
-    const [preco, setpreco] = useState<string>("");
-    const [descricao, setdescricao] = useState<string>("");
-    const [duracao, setduracao] = useState<string>("");
+    const [preco, setPreco] = useState<string>("");
+    const [descricao, setDescricao] = useState<string>("");
+    const [duracao, setDuracao] = useState<string>("");
     const [erro, setErro] = useState<string>("");
 
     const cadastrarServico = (e: FormEvent) => {
@@ -22,14 +22,14 @@ const CadastroServico = () => {
 
         console.log(dados);
         axios
-            .post("http://127.0.0.1:8000/api/cadastrarServico", dados, {
+            .post("http://127.0.0.1:8000/api/servico", dados, {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
                 },
             })
             .then(function (response) {
-               window.location.href = "/ListagemServiço";
+               window.location.href = "/ListagemServico";
             })
             .catch(function (error) {
                 console.log(error);
@@ -41,13 +41,13 @@ const CadastroServico = () => {
             setNome(e.target.value);
         }
         if (e.target.name === "preco") {
-            setpreco(e.target.value);
+            setPreco(e.target.value);
         }
         if (e.target.name === "descricao") {
-            setdescricao(e.target.value);
+            setDescricao(e.target.value);
         }
         if (e.target.name === "duracao") {
-            setduracao(e.target.value);
+            setDuracao(e.target.value);
         }
     };
 
@@ -58,7 +58,7 @@ const CadastroServico = () => {
                 <div className='container'>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>✩Cadastrar Serviços✩</h5>
+                            <h5 className='card-title'>Cadastrar Serviços✩</h5>
                             <form onSubmit={cadastrarServico} className='row g-3'>
                                 <div className='col-6'>
                                     <label htmlFor="nome" className="form-label">
@@ -110,7 +110,7 @@ const CadastroServico = () => {
                                 </div>
 
                                 <div className="col-12">
-                                    <button type="submit" className="btn btn-dark btn-sm">
+                                    <button type="submit" className="btn btn-success btn-sm">
                                         Cadastrar
                                     </button>
                                 </div>

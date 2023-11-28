@@ -4,6 +4,7 @@ import Header from './Header';
 import styles from '../template.module.css'
 import Footer from './Footer';
 import { CadastroInterface } from '../Interfaces/CadastroProfissionalInterface';
+import { Link } from 'react-router-dom';
 
 
 const ListagemProfissional = () => {
@@ -12,6 +13,17 @@ const ListagemProfissional = () => {
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
 
+
+    function handleDelete(id: number) {
+        const confirm = window.confirm('Você tem certeza que deseja excluir?');
+        if (confirm)
+            axios.delete('http://127.0.0.1:8000/api/Profissional/delete/' + id)
+        .then(function(response){
+            window.location.href = "/ListagemDeProfissional"
+        }).catch(function(error){
+            console.log('Ocorreu um erro ao excluir');
+        })
+    }
 
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
             if (e.target.name === "pesquisa") {
@@ -81,7 +93,7 @@ const ListagemProfissional = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -90,18 +102,22 @@ const ListagemProfissional = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>✩Listagem de Profissional✩</h5>
+                            <h5 className='card-title'> Listagem de Profissional</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                    <th>ID</th>
                                         <th>Nome</th>
-                                        <th>CPF</th>
                                         <th>E-mail</th>
+                                        <th>CPF</th>
                                         <th>Data de Nascimento</th>
-                                        <th>CEP</th>
+                                        <th>cep</th>
                                         <th>Complemento</th>
                                         <th>Salário</th>
+                                        
+                                        
+                                        
+                                        
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -113,15 +129,16 @@ const ListagemProfissional = () => {
                                             <td>{Profissional.email}</td>
                                             <td>{Profissional.cpf}</td>
                                             <td>{Profissional.dataNascimento}</td>
-                                            
                                             <td>{Profissional.cep}</td>
                                             <td>{Profissional.complemento}</td>
                                             <td>{Profissional.salario}</td>
+                                         
                                             
                                             
                                             <td>
-                                                <a href="#" className='btn btn-primary btn-sm'>Editar</a>
-                                                <a href="#" className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarProfissionais/" + Profissional.id} className='btn btn-primary btn-sm'>Editar</Link>
+                                            <a onClick={e => handleDelete(Profissional.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/redefinirSenhaProfissionais"} className='btn btn-primary btn-sm'>Redefinir sua senha</Link>
                                             </td>
                                         </tr>
                                     ))}

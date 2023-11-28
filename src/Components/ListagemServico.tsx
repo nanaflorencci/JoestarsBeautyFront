@@ -3,7 +3,8 @@ import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'r
 
 import styles from '../template.module.css'
 
-import { CadastroInterface } from '../Interfaces/CadastroServicoInterface';
+import { CadastroInterface } from '../Interfaces/CadastroServicos';
+import { Link } from 'react-router-dom';
 
 
 const ListagemDeServico = () => {
@@ -11,6 +12,17 @@ const ListagemDeServico = () => {
     const [servicos, setServicos] = useState<CadastroInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
+
+    function handleDelete(id: number) {
+        const confirm = window.confirm('Você tem certeza que deseja excluir?');
+        if (confirm)
+            axios.delete('http://127.0.0.1:8000/api/servico/delete/' + id)
+        .then(function(response){
+            window.location.href = "/ListagemServico"
+        }).catch(function(error){
+            console.log('Ocorreu um erro ao excluir');
+        })
+    }
 
 
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
@@ -81,7 +93,7 @@ const ListagemDeServico = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -90,15 +102,19 @@ const ListagemDeServico = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>✩Listagem de Serviços✩</h5>
+                            <h5 className='card-title'> Listagem de Serviços</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Nome</th>
-                                        <th>Preço</th>
-                                        <th>Duração</th>
-                                        <th>Descrição</th>
+                                        <th>Preco</th>
+                                        <th>Duracao</th>
+                                        <th>descricao</th>
+                               
+                                        
+                                        
+                                        
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -115,8 +131,8 @@ const ListagemDeServico = () => {
                                             
                                             
                                             <td>
-                                                <a href="#" className='btn btn-primary btn-sm'>Editar</a>
-                                                <a href="#" className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarServico/" + servicos.id} className='btn btn-primary btn-sm'>Editar</Link>
+                                            <a onClick={e => handleDelete(servicos.id)} className='btn btn-danger btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}

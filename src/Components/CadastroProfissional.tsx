@@ -21,38 +21,8 @@ const CadastroDeProfissionais = () => {
     const [complemento, setComplemento] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [salario, setSalario]= useState<string>("");
-    const[erro, setErro]=useState<string>("")
-
-    const Cep = (e: FormEvent) => {
-        e.preventDefault();
-        fetch('https://viacep.com.br/ws/'+cep+'/json/',
-        {
-            method:'GET'
-        }).then(Response=> Response.json())
-        .then(
-            data=>{
-                setCidade(data.cidade);
-                setCep(data.cep);
-                setEstado(data.estado);
-                setPais(data.pais);
-                setRua(data.rua);
-                setNumero(data.numero);
-                setBairro(data.bairro);
-                setErro("")
-            }
-        ).catch(error => {
-            setErro("Pesquisa Inválida");
-        });
 
 
-
-    }
-
-    const submitForm = (e: ChangeEvent<HTMLInputElement>) => {
-        if (e.target.name == "cep") {
-            setCep(e.target.value);
-        }
-    }
 
     const cadastrarUsuario = (e: FormEvent) => {
         e.preventDefault();
@@ -75,7 +45,7 @@ const CadastroDeProfissionais = () => {
         }
 
         console.log(dados)
-        axios.post('http://127.0.0.1:8000/api/cadastroProfissional', dados, {
+        axios.post('http://127.0.0.1:8000/api/Profissional', dados, {
             headers:
                 { "Accept": "application/json", "Content-Type": "application/json" }
         }).then(function (response) {
@@ -84,6 +54,37 @@ const CadastroDeProfissionais = () => {
             console.log(error);
         });
     }
+
+    const findCep = (e: FormEvent) => {
+
+        e.preventDefault();
+
+        fetch('https://viacep.com.br/ws/' + cep + '/json/',
+            {
+                method: 'GET'
+            }
+        ).then(response => response.json())
+            .then(
+                data => {
+                    console.log(data);
+
+                    setCidade(data.localidade);
+                    setPais(data.pais);
+                    setEstado(data.uf);
+
+
+                }
+            )
+
+
+    }
+const submitForm = (e: ChangeEvent<HTMLInputElement>) => {
+        if (e.target.name = "cep") {
+            setCep(e.target.value);
+        }
+
+    }
+
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nome") {
@@ -140,67 +141,71 @@ const CadastroDeProfissionais = () => {
                 <div className='container'>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>✩Cadastro de Profissionais✩</h5>
+                            <h5 className='card-title'>Cadastro de Profissionais</h5>
                             <form onSubmit={cadastrarUsuario} className='row g-3'>
-                            <div className='col-6'>
-                                    <label htmlFor="nome" className='form-label'>Nome</label>
-                                    <input type="text" name='nome' className='form-control' required onChange={handleState} />{nome}
+                                <div className='col-6'>
+                                <label htmlFor="nome" className='form-label'>Nome</label>
+                                    <input type="text" name='nome' className='form-control' required onChange={handleState} placeholder='ex: Maria' />
                                 </div>
                                 <div className='col-6'>
-                                    <label htmlFor="celular" className='form-label'>Celular</label>
-                                    <input type="text" name='celular' className='form-control' required onChange={handleState} />
+                                    <label htmlFor="email" className='form-label' >E-mail</label>
+                                    <input type="email" name='email' className='form-control' required onChange={handleState}  placeholder='ex: xxxx@gmail.com'/>
+
                                 </div>
-                                <div className='col-6'>
-                                    <label htmlFor="email" className='form-label'>E-mail</label>
-                                    <input type="text" name='email' className='form-control' required onChange={handleState} />
-                                </div>
-                                <div className='col-6'>
-                                    <label htmlFor="password" className='form-label'>Senha</label>
-                                    <input type="text" name='password' className='form-control' required onChange={handleState} />
-                                </div>
-                                <div className='col-6'>
-                                    <label htmlFor="dataDeNascimento" className='form-label'>Data de nascimento</label>
-                                    <input type="date" name='dataDeNascimento' className='form-control' required onChange={handleState} />
-                                </div>
-                                <div className='col-6'>
+                                <div className='col-4'>
                                     <label htmlFor="cpf" className='form-label'>CPF</label>
-                                    <input type="text" name='cpf' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='cpf' className='form-control' required onChange={handleState} placeholder='ex: 11111111111'/>
                                 </div>
-                                <div className='col-6'>
-                                    <label htmlFor="pais" className='form-label'>País</label>
-                                    <input type="text" name='pais' className='form-control' required onChange={handleState} />
+                                <div className='col-4'>
+                                    <label htmlFor="cpf" className='form-label'>Data de Nascimento</label>
+                                    <input type="date" name='dataNascimento' className='form-control' required onChange={handleState} />
                                 </div>
-                                <div className='col-6'>
+
+
+                                <div className='col-4'>
+                                    <label htmlFor="cep" className='form-label'>Cep</label>
+                                    <input type="text" name='cep' className='form-control' required onBlur={findCep} onChange={handleState} placeholder='Só  numeros'/>
+                                </div>
+                                <div className='col-4'>
                                     <label htmlFor="estado" className='form-label'>Estado</label>
-                                    <input type="text" name='estado' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='estado' value={estado} className='form-control' required onChange={handleState}placeholder='ex:SP' />
                                 </div>
-                                <div className='col-6'>
+
+                                <div className='col-4'>
                                     <label htmlFor="cidade" className='form-label'>Cidade</label>
-                                    <input type="text" name='cidade' className='form-control' required onChange={handleState} />
+                                    <input type="text" value={cidade} id='cidade' name='cidade' className='form-control' required onChange={handleState}placeholder='Presidente Prudente' />
                                 </div>
-                                <div className='col-6'>
-                                    <label htmlFor="bairro" className='form-label'>Bairro</label>
-                                    <input type="text" name='bairro' className='form-control' required onChange={handleState} />
+                                <div className='col-4'>
+                                    <label htmlFor="celular" className='form-label'>Celular</label>
+                                    <input type="text" name='celular' className='form-control' required onChange={handleState} placeholder='ex: Apenas 11 numeros'/>
                                 </div>
-                                <div className='col-6'>
+                                <div className='col-4'>
+                                    <label htmlFor="celular" className='form-label'>Pais</label>
+                                    <input type="text" name='pais' className='form-control' required onChange={handleState} placeholder='ex: Brasil' />
+                                </div>
+                                <div className='col-4'>
                                     <label htmlFor="rua" className='form-label'>Rua</label>
-                                    <input type="text" name='rua' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='rua' className='form-control' required onChange={handleState}placeholder='ex: Manaus' />
                                 </div>
-                                <div className='col-6'>
-                                    <label htmlFor="numero" className='form-label'>Número</label>
-                                    <input type="text" name='numero' className='form-control' required onChange={handleState} />
+                                <div className='col-4'>
+                                    <label htmlFor="numero" className='form-label'>Numero</label>
+                                    <input type="text" name='numero' className='form-control' required onChange={handleState} placeholder='ex: Apenas 11 numeros'/>
                                 </div>
-                                <div className='col-6'>
-                                    <label htmlFor="cep" className='form-label'>CEP</label>
-                                    <input type="text" name='cep' className='form-control' required onChange={handleState} />
+                                <div className='col-4'>
+                                    <label htmlFor="bairro" className='form-label'>Bairro</label>
+                                    <input type="text" name='bairro' className='form-control' required onChange={handleState} placeholder='ex: Renascer' />
                                 </div>
-                                <div className='col-6'>
+                                <div className='col-4'>
                                     <label htmlFor="complemento" className='form-label'>Complemento</label>
-                                    <input type="text" name='complemento' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='complemento' className='form-control' required onChange={handleState} placeholder='ex: Quinta rua'/>
                                 </div>
                                 <div className='col-6'>
                                     <label htmlFor="salario" className='form-label'>Salário</label>
                                     <input type="decimal" name='salario' className='form-control' required onChange={handleState} />
+                                </div>
+                                <div className='col-6'>
+                                    <label htmlFor="password" className='form-label'>Senha</label>
+                                    <input type="text" name='password' className='form-control' required onChange={handleState} />
                                 </div>
                                 <div className='col-12'>
                                     <button type='submit' className='btn btn-dark btn-sm'>Cadastrar</button>
