@@ -4,6 +4,7 @@ import Header from './Header';
 import styles from '../template.module.css'
 import Footer from './Footer';
 import { CadastroInterface } from '../Interfaces/CadastroClienteInterface';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,6 +13,17 @@ const ListagemDeClientes = () => {
     const [clientes, setClientes] = useState<CadastroInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
+
+    function handleDelete(id: number) {
+        const confirm = window.confirm('Você tem certeza que deseja excluir?');
+        if (confirm)
+            axios.delete('http://127.0.0.1:8000/api/clientes/delete/' + id)
+        .then(function(response){
+            window.location.href = "/ListagemDeClientes"
+        }).catch(function(error){
+            console.log('Ocorreu um erro ao excluir');
+        })
+    }
 
 
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
@@ -82,7 +94,7 @@ const ListagemDeClientes = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -91,7 +103,7 @@ const ListagemDeClientes = () => {
                     </div>
                     <div className='card'>
                         <div className='card-body'>
-                            <h5 className='card-title'>✩Listagem de Clientes✩</h5>
+                            <h5 className='card-title'> Listagem de Clientes</h5>
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
@@ -100,8 +112,7 @@ const ListagemDeClientes = () => {
                                         <th>E-mail</th>
                                         <th>CPF</th>
                                         <th>Data de Nascimento</th>
-        
-                                        <th>CEP</th>
+                                        <th>cep</th>
                                         <th>Complemento</th>
                                         
                                         
@@ -117,14 +128,15 @@ const ListagemDeClientes = () => {
                                             <td>{cliente.email}</td>
                                             <td>{cliente.cpf}</td>
                                             <td>{cliente.dataNascimento}</td>
-                                    
                                             <td>{cliente.cep}</td>
                                             <td>{cliente.complemento}</td>
+                                          
                                             
                                             
                                             <td>
-                                                <a href="#" className='btn btn-dark btn-sm'>Editar</a>
-                                                <a href="#" className='btn btn-dark btn-sm'>Excluir</a>
+                                            <Link to={"/EditarClientes/" + cliente.id} className='btn btn-primary btn-sm'>Editar</Link>
+                                            <a onClick={e => handleDelete(cliente.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/redefinirSenhaClientes"} className='btn btn-primary btn-sm'>Redefinir</Link>
                                             </td>
                                         </tr>
                                     ))}
