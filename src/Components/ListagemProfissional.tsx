@@ -1,40 +1,47 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import axios from 'axios';
-import Header from './Header';
-import styles from '../template.module.css'
-import Footer from './Footer';
-import { CadastroInterface } from '../Interfaces/CadastroProfissionalInterface';
+import styles from '../template.module.css';
+import { CadastroProfissionaisInterface } from '../Interfaces/CadastroProfissionalInterface';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import FooterProfissionais from './FooterProfissional';
+
 
 const ListagemProfissional = () => {
 
-    const [Profissional, setProfissional] = useState<CadastroInterface[]>([]);
+    const [Profissional, setProfissional] = useState<CadastroProfissionaisInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
 
+
+    //Delete
     function handleDelete(id: number) {
         const confirm = window.confirm('Você tem certeza que deseja excluir?');
         if (confirm)
-            axios.delete('http://127.0.0.1:8000/api/Profissional/delete/' + id)
+            axios.delete('http://127.0.0.1:8000/api/delete/profissional/' + id)
         .then(function(response){
+            if (response.data.status === false){
+                alert ('Este profissional ainda têm agendamentos')
+            } else {
             window.location.href = "/ListagemDeProfissional"
+            }
         }).catch(function(error){
             console.log('Ocorreu um erro ao excluir');
         })
     }
-
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
             if (e.target.name === "pesquisa") {
             setPesquisa(e.target.value);
         }
     }
 
+    //Pesquisar por nome
     const buscar = (e: FormEvent) => {
         e.preventDefault();
 
         async function fetchData() {
             try {
-                const response = await axios.post('http://127.0.0.1:8000/api/Profissional/nome',
+                const response = await axios.post('http://127.0.0.1:8000/api/nome/profissional',
                     { nome: pesquisa },
                     {
                         headers: {
@@ -59,8 +66,8 @@ const ListagemProfissional = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/Profissional/visualizar');
-                if(true == response.data.status){
+                const response = await axios.get('http://127.0.0.1:8000/api/visualizar/profissional');
+                if(true === response.data.status){
                     setProfissional(response.data.data)
                 }
             } catch (error) {
@@ -72,8 +79,10 @@ const ListagemProfissional = () => {
         fetchData();
     }, []);
 
+    
     return (
         <div>
+            <Header />
             <main className={styles.main}>
                 <div className='container'>
 
@@ -90,7 +99,7 @@ const ListagemProfissional = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -103,15 +112,13 @@ const ListagemProfissional = () => {
                             <table className='table table-hover'>
                                 <thead>
                                     <tr>
-                                    <th>ID</th>
+                                        <th>ID</th>
                                         <th>Nome</th>
                                         <th>E-mail</th>
                                         <th>CPF</th>
-                                        <th>Data de Nascimento</th>
                                         <th>cep</th>
-                                        <th>Complemento</th>
-                                        <th>Salário</th>
-                                        
+                                        <th>complemento</th>
+                                        <th>salario</th>
                                         
                                         
                                         
@@ -125,15 +132,13 @@ const ListagemProfissional = () => {
                                             <td>{Profissional.nome}</td>
                                             <td>{Profissional.email}</td>
                                             <td>{Profissional.cpf}</td>
-                                            <td>{Profissional.dataNascimento}</td>
                                             <td>{Profissional.cep}</td>
                                             <td>{Profissional.complemento}</td>
-                                            <td>{Profissional.salario}</td>
-                                         
+                                            <td>{Profissional.salario}</td>                                      
                                             <td>
-                                            <Link to={"/EditarProfissionais/" + Profissional.id} className='btn btn-primary btn-sm'>Editar</Link>
-                                            <a onClick={e => handleDelete(Profissional.id)} className='btn btn-danger btn-sm'>Excluir</a>
-                                            <Link to={"/redefinirSenhaProfissionais"} className='btn btn-primary btn-sm'>Redefinir sua senha</Link>
+                                            <Link to={"/EditarProfissional/" + Profissional.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
+                                            <Link to={"/RedefinirSenhaProfissionais/"} className='btn btn-primary btn-sm m-1'>Redefinir senha</Link>
+                                                <a onClick={e => handleDelete(Profissional.id)} className='btn btn-danger btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}
@@ -143,7 +148,7 @@ const ListagemProfissional = () => {
                     </div>
                 </div>
             </main>
-
+            <FooterProfissionais />
         </div>
     );
 }

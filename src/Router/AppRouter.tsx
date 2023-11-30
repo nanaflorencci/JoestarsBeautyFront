@@ -1,20 +1,20 @@
 import React from "react";
+
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CadastroAgenda from "../Components/CadastroAgenda";
 import CadastroDeClientes from "../Components/CadastroCliente";
-import CadastroDeProfissionais from "../Components/CadastroProfissional";
-import CadastroServico from "../Components/CadastroServico";
-import EditarClientes from "../Components/EditarClientes";
-import EditarProfissional from "../Components/EditarProfissionais";
-import EditarServicos from "../Components/EditarServiços";
-import ListagemAgenda from "../Components/ListagemAgenda";
-import ListagemDeClientes from "../Components/ListagemCliente";
+import CadastroProfissionais from "../Components/CadastroProfissional";
+import CadastroServicos from "../Components/CadastroServico";
+import ListagemClientes from "../Components/ListagemCliente";
 import ListagemProfissional from "../Components/ListagemProfissional";
 import ListagemDeServico from "../Components/ListagemServico";
-import RedefinirSenha from "../Components/RedefinirSenha";
-import RedefinirSenhaProfissioanais from "../Components/RedefinirSenhaProfissional";
-
-
+import EditarCliente from "../Components/EditarClientes";
+import EditarProfissional from "../Components/EditarProfissionais";
+import EditarServicos from "../Components/EditarServiços";
+import RedefinirSenhaProfissionais from "../Components/RedefinirSenhaProfissional";
+import RedefinirSenhaClientes from "../Components/RedefinirSenhaCliente";
+import ListagemAgenda from "../Components/ListagemAgenda";
+import CadastroAgenda from "../Components/CadastroAgenda";
+import EditarAgenda from "../Components/EditarAgenda";
 
 
 const AppRoute = () => {
@@ -22,18 +22,19 @@ const AppRoute = () => {
         <BrowserRouter>
             <Routes>
                 <Route path="CadastroDeClientes" element={<CadastroDeClientes />} />
-                <Route path="CadastroDeProfissionais" element={<CadastroDeProfissionais/>} />
-                <Route path="CadastroDeServicos" element={<CadastroServico/>} />
-                <Route path="CadastroAgenda" element={<CadastroAgenda/>}/>
-                <Route path="ListagemDeClientes" element={<ListagemDeClientes/>} />
+                <Route path="CadastroDeProfissionais" element={<CadastroProfissionais/>} />
+                <Route path="CadastroDeServicos" element={<CadastroServicos/>} />
+                <Route path="CadastroDeAgenda" element={<CadastroAgenda/>} />
+                <Route path="ListagemDeClientes" element={<ListagemClientes/>} />
                 <Route path="ListagemDeProfissional" element={<ListagemProfissional/>} />
-                <Route path="ListagemServico" element={<ListagemDeServico/>} />
-                <Route path="ListagemAgenda" element={<ListagemAgenda/>}/>
-                <Route path="/EditarClientes/:id" element={<EditarClientes />}/>
-                <Route path="/EditarProfissionais/:id" element={<EditarProfissional />}/>
-                <Route path="/EditarServico/:id" element={<EditarServicos />}/>
-                <Route path="/redefinirSenhaClientes" element={<RedefinirSenha />}/>
-                <Route path="/redefinirSenhaProfissionais" element={<RedefinirSenhaProfissioanais/>}/>
+                <Route path="ListagemDeServico" element={<ListagemDeServico/>} />
+                <Route path="ListagemDeAgenda" element={<ListagemAgenda/>} />
+                <Route path="/EditarCliente/:id" element={<EditarCliente/>} />
+                <Route path="/EditarProfissional/:id" element={<EditarProfissional/>} />
+                <Route path="/EditarServicos/:id" element={<EditarServicos/>} />
+                <Route path="/EditarAgenda/:id" element={<EditarAgenda/>} />
+                <Route path="/redefinirSenhaClientes" element={<RedefinirSenhaClientes/>} />
+                <Route path="/redefinirSenhaProfissionais" element={<RedefinirSenhaProfissionais/>} />
             </Routes>
         </BrowserRouter>
     );

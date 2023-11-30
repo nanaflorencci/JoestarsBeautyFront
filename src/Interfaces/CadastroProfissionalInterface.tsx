@@ -1,10 +1,10 @@
-export interface CadastroInterface{
+export interface CadastroProfissionaisInterface{
     id:number;
         nome:string;
         celular:string;
         email:string;
         cpf:string;
-        dataNascimento:string;
+        dataDeNascimento:string;
         cidade:string;
         estado:string;
         pais:string;
@@ -13,6 +13,6 @@ export interface CadastroInterface{
         bairro:string;
         cep:string;
         complemento:string;
-        passaword:string;
+        senha:string;
         salario:string;
-}
+    }

@@ -1,25 +1,30 @@
-import axios from 'axios';
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'react';
+import axios from 'axios';
 import styles from '../template.module.css'
-import { CadastroInterface } from '../Interfaces/CadastroServicoInterface';
+import { CadastroServicosInterface } from '../Interfaces/CadastroServicoInterface';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footerservicos from './FooterServicos';
+
 
 const ListagemDeServico = () => {
 
-    const [servicos, setServicos] = useState<CadastroInterface[]>([]);
+    const [servicos, setServicos] = useState<CadastroServicosInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
+
 
     function handleDelete(id: number) {
         const confirm = window.confirm('Você tem certeza que deseja excluir?');
         if (confirm)
-            axios.delete('http://127.0.0.1:8000/api/servico/delete/' + id)
+            axios.delete('http://127.0.0.1:8000/api/delete/servicos/' + id)
         .then(function(response){
-            window.location.href = "/ListagemServico"
+            window.location.href = "/ListagemDeServico"
         }).catch(function(error){
             console.log('Ocorreu um erro ao excluir');
         })
     }
+
 
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
             if (e.target.name === "pesquisa") {
@@ -32,7 +37,7 @@ const ListagemDeServico = () => {
 
         async function fetchData() {
             try {
-                const response = await axios.post('http://127.0.0.1:8000/api/servico/nome',
+                const response = await axios.post('http://127.0.0.1:8000/api/nome/servicos',
                     { nome: pesquisa },
                     {
                         headers: {
@@ -57,7 +62,7 @@ const ListagemDeServico = () => {
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get('http://127.0.0.1:8000/api/servico/visualizar');
+                const response = await axios.get('http://127.0.0.1:8000/api/visualizar/servicos');
                 if(true == response.data.status){
                     setServicos(response.data.data)
                 }
@@ -70,8 +75,10 @@ const ListagemDeServico = () => {
         fetchData();
     }, []);
 
+    
     return (
         <div>
+            <Header />
             <main className={styles.main}>
                 <div className='container'>
 
@@ -88,7 +95,7 @@ const ListagemDeServico = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -107,6 +114,9 @@ const ListagemDeServico = () => {
                                         <th>Duracao</th>
                                         <th>descricao</th>
                                
+                                        
+                                        
+                                        
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -117,11 +127,10 @@ const ListagemDeServico = () => {
                                             <td>{servicos.nome}</td>
                                             <td>{servicos.preco}</td>
                                             <td>{servicos.descricao}</td>
-                                            <td>{servicos.duracao}</td>
-                                            
+                                            <td>{servicos.duracao}</td>     
                                             <td>
-                                            <Link to={"/EditarServico/" + servicos.id} className='btn btn-primary btn-sm'>Editar</Link>
-                                            <a onClick={e => handleDelete(servicos.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarServicos/" + servicos.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
+                                                <a onClick={e => handleDelete(servicos.id)} className='btn btn-danger btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}
@@ -131,7 +140,7 @@ const ListagemDeServico = () => {
                     </div>
                 </div>
             </main>
-
+            <Footerservicos />
         </div>
     );
 }

@@ -22,27 +22,31 @@ const Header = () => {
                                     <a href="#" className="nav-link active">Início</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeClientes" className="nav-link active">Cadastrar Clientes</a>
+                                    <a href="/CadastroDeClientes" className="nav-link active">Cadastrar Clientes✩</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeProfissionais" className="nav-link active">Cadastrar profissionais</a>
+                                    <a href="/CadastroDeProfissionais" className="nav-link active">Cadastrar profissionais✩</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeServicos" className="nav-link active">Cadastrar Serviços</a>
+                                    <a href="/CadastroDeServicos" className="nav-link active">Cadastrar serviços✩</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroAgenda" className="nav-link active">Cadastrar Agendamento</a>
+                                    <a href="/CadastroDeAgenda" className="nav-link active">Agendamento✩</a>
                                 </li>
-
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
 
+
             <div className="container col-md-12 ml-sm-auto mt-3 col-lg-12 px-4">
 
+
+
             </div>
+
+
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" >

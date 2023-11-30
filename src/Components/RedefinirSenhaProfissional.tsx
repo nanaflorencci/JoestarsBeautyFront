@@ -1,20 +1,23 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from "react";
+
 import style from '../template.module.css'
 import Header from "./Header";
-import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import FooterSenha from "./FooterSenha";
 
-const RedefinirSenhaProfissioanais =()=>{
+const RedefinirSenhaProfissionais = () => {
     const [email, setEmail] = useState<string>("");
+
     const parametros = useParams();
+
     const redefinir = (e: FormEvent) => {
         e.preventDefault();
 
         const dados = {
             email: email
         }
-        axios.post("http://127.0.0.1:8000/api/Profissional/senha/redefinir", dados,
+        axios.post("http://127.0.0.1:8000/api/senha/profissional", dados,
             {
                 headers: {
                     "Accept": "application/json",
@@ -26,11 +29,12 @@ const RedefinirSenhaProfissioanais =()=>{
                 console.log('Ocorreu um erro ao atualizar sua senha');
             });
 
+
     }
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/Profissional/visualizar" + parametros.id);
+                const response = await axios.get("http://127.0.0.1:8000/api/profissionais/" + parametros.id);
                 setEmail(response.data.data.email);
             } catch (error) {
                 console.log("Erro ao buscar dados da api");
@@ -41,6 +45,7 @@ const RedefinirSenhaProfissioanais =()=>{
         fetchData();
 
     }, []);
+
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "email") {
@@ -69,9 +74,9 @@ const RedefinirSenhaProfissioanais =()=>{
                         </div>
                     </div>
                 </main>
-                <Footer />
+                <FooterSenha />
         </div>
     );
 }
 
-export default RedefinirSenhaProfissioanais
+export default RedefinirSenhaProfissionais;

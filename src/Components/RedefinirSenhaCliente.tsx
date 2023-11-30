@@ -1,11 +1,12 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from "react";
+
 import style from '../template.module.css'
 import Header from "./Header";
-import Footer from "./Footer";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import FooterSenha from "./FooterSenha";
 
-const RedefinirSenha = () => {
+const RedefinirSenhaClientes = () => {
     const [email, setEmail] = useState<string>("");
 
     const parametros = useParams();
@@ -16,7 +17,7 @@ const RedefinirSenha = () => {
         const dados = {
             email: email
         }
-        axios.post("http://127.0.0.1:8000/api/clientes/senha/redefinir", dados,
+        axios.post("http://127.0.0.1:8000/api/senha/clientes", dados,
             {
                 headers: {
                     "Accept": "application/json",
@@ -28,21 +29,21 @@ const RedefinirSenha = () => {
                 console.log('Ocorreu um erro ao atualizar sua senha');
             });
 
+
     }
     useEffect(() => {
         async function fetchData() {
             try {
-                const response = await axios.get("http://127.0.0.1:8000/api/clientes/pesquisar/" + parametros.id);
+                const response = await axios.get("http://127.0.0.1:8000/api/clientes/" + parametros.id);
                 setEmail(response.data.data.email);
             } catch (error) {
                 console.log("Erro ao buscar dados da api");
-
             }
-
         }
         fetchData();
 
     }, []);
+
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "email") {
@@ -71,9 +72,9 @@ const RedefinirSenha = () => {
                         </div>
                     </div>
                 </main>
-                <Footer />
+                <FooterSenha />
         </div>
     );
 }
 
-export default RedefinirSenha;
+export default RedefinirSenhaClientes;

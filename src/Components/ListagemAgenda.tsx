@@ -4,7 +4,8 @@ import styles from '../template.module.css'
 import { CadastroInterfaceAgenda } from '../Interfaces/CadastroAgendaInterface';
 import { Link } from 'react-router-dom';
 import Header from './Header';
-import Footer from './Footer';
+import FooterAgenda from './FooterAgenda';
+
 
 const ListagemAgenda = () => {
 
@@ -19,6 +20,7 @@ const ListagemAgenda = () => {
         }
     }
 
+    
 //deletando
 function handleDelete(id: number) {
     const confirm = window.confirm('Você tem certeza que deseja excluir?');
@@ -39,7 +41,7 @@ function handleDelete(id: number) {
 
         async function fetchData() {
             try {
-                const response = await axios.post('http://127.0.0.1:8000/api/Profissional/nome',
+                const response = await axios.post('http://127.0.0.1:8000/api/nome/profissional',
                     { nome: pesquisa },
                     {
                         headers: {
@@ -79,6 +81,7 @@ function handleDelete(id: number) {
         fetchData();
     }, []);
 
+    
     return (
         <div>
             <Header />
@@ -96,7 +99,7 @@ function handleDelete(id: number) {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -122,7 +125,7 @@ function handleDelete(id: number) {
                                             <td>{agenda.dataHora}</td>
                                             
                                             <td>
-                                            <Link to={"/EditarAgenda/"+agenda.id} className='btn btn-primary btn-sm'>Editar</Link>
+                                            <Link to={"/EditarAgenda/"+agenda.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
                                                 <a onClick={e => handleDelete(agenda.id)} className='btn btn-danger btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
@@ -133,7 +136,7 @@ function handleDelete(id: number) {
                     </div>
                 </div>
             </main>
-            <Footer />
+            <FooterAgenda />
         </div>
     );
 }
