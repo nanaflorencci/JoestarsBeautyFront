@@ -1,11 +1,10 @@
 import axios from 'axios';
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import styles from '../template.module.css'
-import { CadastroInterfaceAgenda } from '../Interfaces/CadastroAgenda';
+import { CadastroInterfaceAgenda } from '../Interfaces/CadastroAgendaInterface';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
-
 
 const ListagemAgenda = () => {
 
@@ -20,7 +19,6 @@ const ListagemAgenda = () => {
         }
     }
 
-    
 //deletando
 function handleDelete(id: number) {
     const confirm = window.confirm('Você tem certeza que deseja excluir?');
@@ -81,7 +79,6 @@ function handleDelete(id: number) {
         fetchData();
     }, []);
 
-    
     return (
         <div>
             <Header />
@@ -99,7 +96,7 @@ function handleDelete(id: number) {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>

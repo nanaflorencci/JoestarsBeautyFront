@@ -1,19 +1,18 @@
 import React from "react";
-
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CadastroAgenda from "../Components/CadastroAgenda";
-import CadastroDeClientes from "../components/CadastroClientes";
-import CadastroDeProfissionais from "../components/CadastrodeProfissionais";
-import CadastroServico from "../components/CadastrodeSevicos";
-import EditarClientes from "../components/editarClientes";
-import EditarProfissional from "../components/editardosProfissionais";
-import EditarServicos from "../components/editarServicos";
-import ListagemAgenda from "../components/ListagemAgenda";
-import ListagemDeClientes from "../components/ListagemDeClientes";
-import ListagemProfissional from "../components/ListagemDeProfissionais";
-import ListagemDeServico from "../components/ListagemDeServicos";
-import RedefinirSenha from "../components/redefinirSenha";
-import RedefinirSenhaProfissioanais from "../components/redefinirSenhaProfissional";
+import CadastroDeClientes from "../Components/CadastroCliente";
+import CadastroDeProfissionais from "../Components/CadastroProfissional";
+import CadastroServico from "../Components/CadastroServico";
+import EditarClientes from "../Components/EditarClientes";
+import EditarProfissional from "../Components/EditarProfissionais";
+import EditarServicos from "../Components/EditarServiços";
+import ListagemAgenda from "../Components/ListagemAgenda";
+import ListagemDeClientes from "../Components/ListagemCliente";
+import ListagemProfissional from "../Components/ListagemProfissional";
+import ListagemDeServico from "../Components/ListagemServico";
+import RedefinirSenha from "../Components/RedefinirSenha";
+import RedefinirSenhaProfissioanais from "../Components/RedefinirSenhaProfissional";
 
 
 

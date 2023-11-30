@@ -110,7 +110,7 @@ const CadastroServico = () => {
                                 </div>
 
                                 <div className="col-12">
-                                    <button type="submit" className="btn btn-success btn-sm">
+                                    <button type="submit" className="btn btn-dark btn-sm">
                                         Cadastrar
                                     </button>
                                 </div>

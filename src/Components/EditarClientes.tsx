@@ -61,7 +61,6 @@ const EditarClientes = () => {
 
     }
 
-
     useEffect(() => {
         async function fetchData() {
             try {
@@ -90,7 +89,6 @@ const EditarClientes = () => {
         fetchData();
 
     }, []);
-
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nome") {
@@ -210,6 +208,5 @@ const EditarClientes = () => {
         </div>
     );
 }
-
 
 export default EditarClientes;

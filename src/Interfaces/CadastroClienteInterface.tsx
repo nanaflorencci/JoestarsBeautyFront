@@ -14,4 +14,4 @@ export interface CadastroInterface{
         cep:string;
         complemento:string;
         password:string;
-    }
+}

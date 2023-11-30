@@ -4,4 +4,4 @@ export interface CadastroInterface{
     descricao:string, 
     duracao:string,
     preco:string
-    }
+}

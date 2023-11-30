@@ -6,8 +6,6 @@ import Footer from './Footer';
 import { CadastroInterface } from '../Interfaces/CadastroClienteInterface';
 import { Link } from 'react-router-dom';
 
-
-
 const ListagemDeClientes = () => {
 
     const [clientes, setClientes] = useState<CadastroInterface[]>([]);
@@ -24,7 +22,6 @@ const ListagemDeClientes = () => {
             console.log('Ocorreu um erro ao excluir');
         })
     }
-
 
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
             if (e.target.name === "pesquisa") {
@@ -75,7 +72,6 @@ const ListagemDeClientes = () => {
         fetchData();
     }, []);
 
-    
     return (
         <div>
             <main className={styles.main}>
@@ -94,7 +90,7 @@ const ListagemDeClientes = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>

@@ -1,5 +1,4 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from "react";
-
 import style from '../template.module.css'
 import Header from "./Header";
 import Footer from "./Footer";
@@ -29,7 +28,6 @@ const RedefinirSenha = () => {
                 console.log('Ocorreu um erro ao atualizar sua senha');
             });
 
-
     }
     useEffect(() => {
         async function fetchData() {
@@ -45,7 +43,6 @@ const RedefinirSenha = () => {
         fetchData();
 
     }, []);
-
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "email") {

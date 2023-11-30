@@ -15,4 +15,4 @@ export interface CadastroInterface{
         complemento:string;
         passaword:string;
         salario:string;
-    }
+}

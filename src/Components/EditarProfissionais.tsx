@@ -60,9 +60,7 @@ const EditarProfissional = () => {
                 console.log('Ocorreu um erro ao atualizar');
             });
 
-
     }
-
 
     useEffect(() => {
         async function fetchData() {
@@ -93,7 +91,6 @@ const EditarProfissional = () => {
         fetchData();
 
     }, []);
-
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nome") {
@@ -219,6 +216,5 @@ const EditarProfissional = () => {
         </div>
     );
 }
-
 
 export default EditarProfissional;

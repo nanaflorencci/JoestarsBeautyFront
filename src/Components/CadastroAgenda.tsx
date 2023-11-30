@@ -7,13 +7,11 @@ import FooterAgenda from './Footer';
 
 import { CadastroInterface } from '../Interfaces/CadastroProfissionalInterface';
 
-
 const CadastroAgenda = () => {
 
     const [profissional_id, setProfissional_id] = useState<string>("");
     const [dataHora, setDataHora] = useState<string>("");
     const [profissional, setProfissional] = useState<CadastroInterface[]>([]);
-
 
     const cadastrarAgenda = (e: FormEvent) => {
         e.preventDefault();
@@ -32,7 +30,7 @@ const CadastroAgenda = () => {
                 }
             }
         ).then(function (response) {
-            alert('cadastro da Agenda realizado com sucesso')
+            alert('Cadastro da agenda realizado com êxito')
 
             window.location.href = "/ListagemAgenda"
         }).catch(function (error) {
@@ -78,7 +76,7 @@ const CadastroAgenda = () => {
                                 <div className='col-6'>
                                     <label htmlFor="nome" className='form-label'>Profissional_Id</label>
                                     <select name='profissional_id' id='profissional_id ' className='form-control' required onChange={handleProfissionalSelect}   >
-                                        <option value="0">Selecione um Profissional</option>
+                                        <option value="0">Selecione um profissional</option>
                                         {profissional.map(profissional => (
                                             <option key={profissional.id} value={profissional.id}>
                                                 {profissional.nome}
@@ -92,7 +90,7 @@ const CadastroAgenda = () => {
                                 </div>
 
                                 <div className='col-12'>
-                                    <button type='submit' className='btn btn-success btn-sm' >Cadastrar</button >
+                                    <button type='submit' className='btn btn-dark btn-sm' >Cadastrar</button >
                                 </div>
                             </form>
                         </div>

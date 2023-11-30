@@ -6,13 +6,11 @@ import Footer from './Footer';
 import { CadastroInterface } from '../Interfaces/CadastroProfissionalInterface';
 import { Link } from 'react-router-dom';
 
-
 const ListagemProfissional = () => {
 
     const [Profissional, setProfissional] = useState<CadastroInterface[]>([]);
     const [pesquisa, setPesquisa] = useState<string>('');
     const [error, setError] = useState("");
-
 
     function handleDelete(id: number) {
         const confirm = window.confirm('Você tem certeza que deseja excluir?');
@@ -74,7 +72,6 @@ const ListagemProfissional = () => {
         fetchData();
     }, []);
 
-    
     return (
         <div>
             <main className={styles.main}>
@@ -93,7 +90,7 @@ const ListagemProfissional = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -133,8 +130,6 @@ const ListagemProfissional = () => {
                                             <td>{Profissional.complemento}</td>
                                             <td>{Profissional.salario}</td>
                                          
-                                            
-                                            
                                             <td>
                                             <Link to={"/EditarProfissionais/" + Profissional.id} className='btn btn-primary btn-sm'>Editar</Link>
                                             <a onClick={e => handleDelete(Profissional.id)} className='btn btn-danger btn-sm'>Excluir</a>

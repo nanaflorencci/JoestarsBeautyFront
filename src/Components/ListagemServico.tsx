@@ -1,11 +1,8 @@
 import axios from 'axios';
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from 'react';
-
 import styles from '../template.module.css'
-
-import { CadastroInterface } from '../Interfaces/CadastroServicos';
+import { CadastroInterface } from '../Interfaces/CadastroServicoInterface';
 import { Link } from 'react-router-dom';
-
 
 const ListagemDeServico = () => {
 
@@ -23,7 +20,6 @@ const ListagemDeServico = () => {
             console.log('Ocorreu um erro ao excluir');
         })
     }
-
 
         const handleState = (e: ChangeEvent<HTMLInputElement>) => {
             if (e.target.name === "pesquisa") {
@@ -74,7 +70,6 @@ const ListagemDeServico = () => {
         fetchData();
     }, []);
 
-    
     return (
         <div>
             <main className={styles.main}>
@@ -93,7 +88,7 @@ const ListagemDeServico = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -112,9 +107,6 @@ const ListagemDeServico = () => {
                                         <th>Duracao</th>
                                         <th>descricao</th>
                                
-                                        
-                                        
-                                        
                                         <th>Ações</th>
                                     </tr>
                                 </thead>
@@ -126,9 +118,6 @@ const ListagemDeServico = () => {
                                             <td>{servicos.preco}</td>
                                             <td>{servicos.descricao}</td>
                                             <td>{servicos.duracao}</td>
-                                           
-                                          
-                                            
                                             
                                             <td>
                                             <Link to={"/EditarServico/" + servicos.id} className='btn btn-primary btn-sm'>Editar</Link>

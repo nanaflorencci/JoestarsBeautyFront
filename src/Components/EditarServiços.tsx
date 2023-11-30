@@ -14,7 +14,6 @@ const EditarServicos = () => {
     const [duracao, setDuracao] = useState<string>("");
     const [id, setId] = useState<number>();
 
-
     const parametro = useParams();
 
     const atualizar = (e: FormEvent) => {
@@ -41,9 +40,7 @@ const EditarServicos = () => {
                 console.log('Ocorreu um erro ao atualizar');
             });
 
-
     }
-
 
     useEffect(() => {
         async function fetchData() {
@@ -55,8 +52,6 @@ const EditarServicos = () => {
                 setDuracao(response.data.data.duracao);
                 setId(response.data.data.id);
 
-
-
             } catch (error) {
                 console.log("Erro ao buscar dados da api");
 
@@ -66,7 +61,6 @@ const EditarServicos = () => {
         fetchData();
 
     }, []);
-
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nome") {
@@ -82,7 +76,6 @@ const EditarServicos = () => {
         setDuracao(e.target.value);
     }
 };
-
 
     return (
         <div>
@@ -146,7 +139,5 @@ const EditarServicos = () => {
         </div>
     );
 }
-
-
 
 export default EditarServicos;

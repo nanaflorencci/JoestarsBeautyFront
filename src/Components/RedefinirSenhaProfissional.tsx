@@ -1,5 +1,4 @@
 import React, { Component, useState, ChangeEvent, FormEvent, useEffect } from "react";
-
 import style from '../template.module.css'
 import Header from "./Header";
 import Footer from "./Footer";
@@ -8,9 +7,7 @@ import axios from "axios";
 
 const RedefinirSenhaProfissioanais =()=>{
     const [email, setEmail] = useState<string>("");
-
     const parametros = useParams();
-
     const redefinir = (e: FormEvent) => {
         e.preventDefault();
 
@@ -29,7 +26,6 @@ const RedefinirSenhaProfissioanais =()=>{
                 console.log('Ocorreu um erro ao atualizar sua senha');
             });
 
-
     }
     useEffect(() => {
         async function fetchData() {
@@ -45,7 +41,6 @@ const RedefinirSenhaProfissioanais =()=>{
         fetchData();
 
     }, []);
-
 
     const handleState = (e: ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "email") {
