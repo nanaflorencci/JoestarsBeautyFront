@@ -12,15 +12,15 @@ Este projeto contêm um site programado por estudantes da escola SESI a fim de a
 ```
 cd JoestarsBeautyFront
 ```
-3. Instalar os comandos:
+3. Inicializar o repositório:
+```
+npm install
+```
+4. Instalar os comandos:
 ```
 npm install bootstrap
 npm install axios
 npm install react-router-dom
-```
-4. Inicializar o repositório:
-```
-npm install
 ```
 5. Acessar o Visual Studio Code:
 ```
