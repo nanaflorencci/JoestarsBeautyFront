@@ -99,7 +99,7 @@ function handleDelete(id: number) {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -125,8 +125,8 @@ function handleDelete(id: number) {
                                             <td>{agenda.dataHora}</td>
                                             
                                             <td>
-                                            <Link to={"/EditarAgenda/"+agenda.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
-                                                <a onClick={e => handleDelete(agenda.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarAgenda/"+agenda.id} className='btn btn-secondary btn-sm m-1'>Editar</Link>
+                                                <a onClick={e => handleDelete(agenda.id)} className='btn btn-dark btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}

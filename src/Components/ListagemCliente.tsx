@@ -96,7 +96,7 @@ const ListagemDeClientes = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -130,9 +130,9 @@ const ListagemDeClientes = () => {
                                             
                                             
                                             <td>
-                                            <Link to={"/EditarCliente/"+cliente.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
-                                            <Link to={"/RedefinirSenhaClientes/"} className='btn btn-primary btn-sm m-1'>Redefinir senha</Link>
-                                                <a onClick={e => handleDelete(cliente.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarCliente/"+cliente.id} className='btn btn-secondary btn-sm m-1'>Editar</Link>
+                                            <Link to={"/RedefinirSenhaClientes/"} className='btn btn-secondary btn-sm m-1'>Redefinir senha</Link>
+                                                <a onClick={e => handleDelete(cliente.id)} className='btn btn-dark btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}

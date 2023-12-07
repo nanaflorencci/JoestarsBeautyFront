@@ -8,7 +8,7 @@ const Header = () => {
 
             <nav className="navbar navbar-expand-lg navbar-dark navbar-center">
                 <div className="container-fluid">
-                    <a href="#" className="navbar-brand">✩Joestars Beauty✩</a>
+                    <a href="#" className="navbar-brand">Joestars Beauty</a>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#conteudoNavbar"
                         aria-controls="conteudoNavbar" aria-expanded="false" aria-label="Toggle Navigation">
@@ -22,23 +22,22 @@ const Header = () => {
                                     <a href="#" className="nav-link active">Início</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeClientes" className="nav-link active">Cadastrar Clientes✩</a>
+                                    <a href="/CadastroDeClientes" className="nav-link active">✩Cadastrar Clientes</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeProfissionais" className="nav-link active">Cadastrar profissionais✩</a>
+                                    <a href="/CadastroDeProfissionais" className="nav-link active">✩Cadastrar profissionais</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeServicos" className="nav-link active">Cadastrar serviços✩</a>
+                                    <a href="/CadastroDeServicos" className="nav-link active">✩Cadastrar serviços</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a href="/CadastroDeAgenda" className="nav-link active">Agendamento✩</a>
+                                    <a href="/CadastroDeAgenda" className="nav-link active">✩Agendamento</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </nav>
-
 
             <div className="container col-md-12 ml-sm-auto mt-3 col-lg-12 px-4">
 

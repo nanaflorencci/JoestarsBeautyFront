@@ -30,7 +30,7 @@ const CadastroAgenda = () => {
             dataHora: dataHora,
         }
 
-        axios.post('http://127.0.0.1:8000/api/agendamento',
+        axios.post('http://127.0.0.1:8000/api/cadastroAgenda',
             dados,
             {
                 headers: {
@@ -111,7 +111,7 @@ const CadastroAgenda = () => {
                                 </div>
 
                                 <div className='col-12'>
-                                    <button type='submit' className='btn btn-success btn-sm' >Cadastrar</button >
+                                    <button type='submit' className='btn btn-dark btn-sm' >Cadastrar</button >
                                 </div>
                             </form>
                         </div>

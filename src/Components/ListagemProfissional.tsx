@@ -99,7 +99,7 @@ const ListagemProfissional = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -136,9 +136,9 @@ const ListagemProfissional = () => {
                                             <td>{Profissional.complemento}</td>
                                             <td>{Profissional.salario}</td>                                      
                                             <td>
-                                            <Link to={"/EditarProfissional/" + Profissional.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
-                                            <Link to={"/RedefinirSenhaProfissionais/"} className='btn btn-primary btn-sm m-1'>Redefinir senha</Link>
-                                                <a onClick={e => handleDelete(Profissional.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarProfissional/" + Profissional.id} className='btn btn-secondary btn-sm m-1'>Editar</Link>
+                                            <Link to={"/RedefinirSenhaProfissionais/"} className='btn btn-secondary btn-sm m-1'>Redefinir senha</Link>
+                                                <a onClick={e => handleDelete(Profissional.id)} className='btn btn-dark btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}

@@ -97,7 +97,7 @@ const Cadastro = () => {
         }
 
         console.log(dados)
-        axios.post('http://127.0.0.1:8000/api/clientes', dados, {
+        axios.post('http://127.0.0.1:8000/api/cadastroCliente', dados, {
             headers:
                 { "Accept": "application/json", "Content-Type": "application/json" }
         }).then(function (response) {
@@ -208,7 +208,7 @@ const Cadastro = () => {
                             <form onSubmit={cadastrarUsuario} className='row g-3'>
                                 <div className='col-4'>
                                     <label htmlFor="nome" className='form-label'>Nome</label>
-                                    <input type="text" name='nome' className='form-control' required onChange={handleState}  placeholder='Ex: torss'/>
+                                    <input type="text" name='nome' className='form-control' required onChange={handleState}  placeholder='Ex: Orochinho'/>
                                     <div className='text-danger'>{nomeErro}</div>
                                 </div>
                                 <div className='col-4'>
@@ -232,7 +232,7 @@ const Cadastro = () => {
                                     <div className='text-danger'>{dataNascimentoErro}</div>
                                 </div>
                                 <div className='col-4'>
-                                <label htmlFor="cep" className='form-label'>Cep</label>
+                                <label htmlFor="cep" className='form-label'>CEP</label>
                                     <input type="text" name='cep' className='form-control' required onBlur={Cep} 
                                     onChange={submitForm} placeholder='contenha 8 numeros'/> 
                                     <div className='text-danger'>{cepErro}</div>
@@ -251,32 +251,32 @@ const Cadastro = () => {
                                 </div>
                                 <div className='col-4'>
                                     <label htmlFor="pais" className='form-label'>País</label>
-                                    <input type="text" name='pais' className='form-control' required onChange={handleState} placeholder='Ex:Brasil'/>
+                                    <input type="text" name='pais' className='form-control' required onChange={handleState} placeholder='Ex: Brasil'/>
                                     <div className='text-danger'>{paisErro}</div>
                                 </div>
                                 <div className='col-4'>
                                     <label htmlFor="rua" className='form-label'>Rua</label>
-                                    <input type="text" name='rua' className='form-control' required onChange={handleState} placeholder='Ex:josé Benicio'/>
+                                    <input type="text" name='rua' className='form-control' required onChange={handleState} placeholder='Ex: Amarelinha'/>
                                     <div className='text-danger'>{ruaErro}</div>
                                 </div>
                                 <div className='col-4'>
-                                    <label htmlFor="numero" className='form-label'>Numero</label>
-                                    <input type="text" name='numero' className='form-control' required onChange={handleState} placeholder='Ex:1212'/>
+                                    <label htmlFor="numero" className='form-label'>Número</label>
+                                    <input type="text" name='numero' className='form-control' required onChange={handleState} placeholder='Ex: 1111'/>
                                     <div className='text-danger'>{numeroErro}</div>
                                 </div>
                                 <div className='col-4'>
                                     <label htmlFor="bairro" className='form-label'>Bairro</label>
-                                    <input type="text" name='bairro' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='bairro' className='form-control' required onChange={handleState} placeholder='Ex: Amarelo'/>
                                     <div className='text-danger'>{bairroErro}</div>
                                 </div>
                                 <div className='col-4'>
                                     <label htmlFor="complemento" className='form-label'>Complemento</label>
-                                    <input type="text" name='complemento' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='complemento' className='form-control' required onChange={handleState} placeholder='Ex: Próximo a certo local'/>
                                     <div className='text-danger'>{complementoErro}</div>
                                 </div>
                                 <div className='col-4'>
                                     <label htmlFor="senha" className='form-label'>Senha</label>
-                                    <input type="text" name='senha' className='form-control' required onChange={handleState} />
+                                    <input type="text" name='senha' className='form-control' required onChange={handleState} placeholder='Ex: 1234'/>
                                     <div className='text-danger'>{senhaErro}</div>
                                 </div>
                                 <div className='col-12'>

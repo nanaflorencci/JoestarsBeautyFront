@@ -30,7 +30,7 @@ const CadastroServicos = () => {
         };
 
         console.log(dados);
-        axios.post("http://127.0.0.1:8000/api/servicos", dados, {
+        axios.post("http://127.0.0.1:8000/api/cadastroServicos", dados, {
                 headers: {
                     Accept: "application/json",
                     "Content-Type": "application/json",
@@ -105,7 +105,7 @@ const CadastroServicos = () => {
                                 </div>
 
                                 <div className="col-12">
-                                    <button type="submit" className="btn btn-success btn-sm">Cadastrar</button>
+                                    <button type="submit" className="btn btn-dark btn-sm">Cadastrar</button>
                                 </div>
                             </form>
                         </div>

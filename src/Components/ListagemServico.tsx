@@ -95,7 +95,7 @@ const ListagemDeServico = () => {
 
                                     </div>
                                     <div className='col-1'>
-                                        <button type='submit' className='btn btn-success'>Pesquisar</button>
+                                        <button type='submit' className='btn btn-dark'>Pesquisar</button>
                                     </div>
 
                                 </form>
@@ -129,8 +129,8 @@ const ListagemDeServico = () => {
                                             <td>{servicos.descricao}</td>
                                             <td>{servicos.duracao}</td>     
                                             <td>
-                                            <Link to={"/EditarServicos/" + servicos.id} className='btn btn-primary btn-sm m-1'>Editar</Link>
-                                                <a onClick={e => handleDelete(servicos.id)} className='btn btn-danger btn-sm'>Excluir</a>
+                                            <Link to={"/EditarServicos/" + servicos.id} className='btn btn-secondary btn-sm m-1'>Editar</Link>
+                                                <a onClick={e => handleDelete(servicos.id)} className='btn btn-dark btn-sm'>Excluir</a>
                                             </td>
                                         </tr>
                                     ))}
